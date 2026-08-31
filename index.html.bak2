@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ryota Yamazaki | Pianist</title>
+
+</head>
+
+<body>
+    <img src="/imges/portrait.jpg"
+         alt="RyotaYamazaki"
+         width="400">
+    <h1>Ryota Yamazaki</h1>
+    <h2>Pianist</h2>
+    <p>Official Website</p>
+
+    <h3>Biography</h3>
+    <p>Biography coming soon.</p>
+
+    <h3>Performances</h3>
+    <p>Upcoming performances coming soon.</p>
+
+    <h3>Contact</h3>
+    <p>Contact information coming soon</p>
+
+</body>
+</html>
+
+

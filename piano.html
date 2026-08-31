@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piano</title>
+
+  <style>
+    .keyboard {
+      display: flex;
+    }
+
+    .key.white {
+      width: 60px;
+      height: 220px;
+      border: 1px solid black;
+      background: white;
+    }
+
+    .key.black {
+      width: 40px;
+      height: 140px;
+      background: black;
+      margin-left: -20px;
+      margin-right: -20px;
+      z-index: 2;
+    }
+
+body {
+    background: black;
+    color: white;
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <section class="piano">
+    <h1>Music & Techlonogy!! You can make sound with this keyboard!!</h1>
+
+    <div class="keyboard">
+
+      <!-- 1 octave -->
+      <div class="key white" data-note="C3"></div>
+      <div class="key black" data-note="C#3"></div>
+      <div class="key white" data-note="D3"></div>
+      <div class="key black" data-note="D#3"></div>
+      <div class="key white" data-note="E3"></div>
+
+      <div class="key white" data-note="F3"></div>
+      <div class="key black" data-note="F#3"></div>
+      <div class="key white" data-note="G3"></div>
+      <div class="key black" data-note="G#3"></div>
+      <div class="key white" data-note="A3"></div>
+      <div class="key black" data-note="A#3"></div>
+      <div class="key white" data-note="B3"></div>
+
+
+      <!-- 2 octave -->
+      <div class="key white" data-note="C4"></div>
+      <div class="key black" data-note="C#4"></div>
+      <div class="key white" data-note="D4"></div>
+      <div class="key black" data-note="D#4"></div>
+      <div class="key white" data-note="E4"></div>
+
+      <div class="key white" data-note="F4"></div>
+      <div class="key black" data-note="F#4"></div>
+      <div class="key white" data-note="G4"></div>
+      <div class="key black" data-note="G#4"></div>
+      <div class="key white" data-note="A4"></div>
+      <div class="key black" data-note="A#4"></div>
+      <div class="key white" data-note="B4"></div>
+
+
+      <!-- 3 octave -->
+      <div class="key white" data-note="C5"></div>
+      <div class="key black" data-note="C#5"></div>
+      <div class="key white" data-note="D5"></div>
+      <div class="key black" data-note="D#5"></div>
+      <div class="key white" data-note="E5"></div>
+
+      <div class="key white" data-note="F5"></div>
+      <div class="key black" data-note="F#5"></div>
+      <div class="key white" data-note="G5"></div>
+      <div class="key black" data-note="G#5"></div>
+      <div class="key white" data-note="A5"></div>
+      <div class="key black" data-note="A#5"></div>
+      <div class="key white" data-note="B5"></div>
+
+    </div>
+  </section>
+
+
+  <script>
+    const keys = document.querySelectorAll(".key");
+
+    const frequencies = {
+      "C3": 130.81,
+      "C#3": 138.59,
+      "D3": 146.83,
+      "D#3": 155.56,
+      "E3": 164.81,
+      "F3": 174.61,
+      "F#3": 185.00,
+      "G3": 196.00,
+      "G#3": 207.65,
+      "A3": 220.00,
+      "A#3": 233.08,
+      "B3": 246.94,
+
+      "C4": 261.63,
+      "C#4": 277.18,
+      "D4": 293.66,
+      "D#4": 311.13,
+      "E4": 329.63,
+      "F4": 349.23,
+      "F#4": 369.99,
+      "G4": 392.00,
+      "G#4": 415.30,
+      "A4": 440.00,
+      "A#4": 466.16,
+      "B4": 493.88,
+
+      "C5": 523.25,
+      "C#5": 554.37,
+      "D5": 587.33,
+      "D#5": 622.25,
+      "E5": 659.25,
+      "F5": 698.46,
+      "F#5": 739.99,
+      "G5": 783.99,
+      "G#5": 830.61,
+      "A5": 880.00,
+      "A#5": 932.33,
+      "B5": 987.77
+    };
+
+    const audioContext = new AudioContext();
+
+    function playPianoNote(frequency) {
+      const now = audioContext.currentTime;
+
+      const masterGain = audioContext.createGain();
+
+      masterGain.gain.setValueAtTime(0.0001, now);
+      masterGain.gain.exponentialRampToValueAtTime(0.5, now + 0.01);
+      masterGain.gain.exponentialRampToValueAtTime(0.15, now + 0.4);
+      masterGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.5);
+
+      masterGain.connect(audioContext.destination);
+
+      const oscillator1 = audioContext.createOscillator();
+      oscillator1.type = "sine";
+      oscillator1.frequency.value = frequency;
+
+      const gain1 = audioContext.createGain();
+      gain1.gain.value = 1.0;
+
+      oscillator1.connect(gain1);
+      gain1.connect(masterGain);
+
+      const oscillator2 = audioContext.createOscillator();
+      oscillator2.type = "sine";
+      oscillator2.frequency.value = frequency * 2;
+
+      const gain2 = audioContext.createGain();
+      gain2.gain.value = 0.25;
+
+      oscillator2.connect(gain2);
+      gain2.connect(masterGain);
+
+      const oscillator3 = audioContext.createOscillator();
+      oscillator3.type = "sine";
+      oscillator3.frequency.value = frequency * 3;
+
+      const gain3 = audioContext.createGain();
+      gain3.gain.value = 0.1;
+
+      oscillator3.connect(gain3);
+      gain3.connect(masterGain);
+
+      oscillator1.start(now);
+      oscillator2.start(now);
+      oscillator3.start(now);
+
+      oscillator1.stop(now + 1.5);
+      oscillator2.stop(now + 1.5);
+      oscillator3.stop(now + 1.5);
+    }
+
+    keys.forEach(function(key) {
+      key.addEventListener("click", function() {
+        const note = key.dataset.note;
+        const frequency = frequencies[note];
+
+        playPianoNote(frequency);
+      });
+    });
+  </script>
+
+</body>
+</html>
