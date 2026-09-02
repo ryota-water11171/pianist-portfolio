@@ -279,9 +279,7 @@
 
     keys.forEach(function(key) {
 
-      key.addEventListener("pointerdown", async function(event) {
-
-        event.preventDefault();
+      key.addEventListener("click", async function(event) {
 
         const context = getAudioContext();
 
