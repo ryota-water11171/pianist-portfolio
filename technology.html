@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+   <title>Technology</title>
+</head>
+
+
+<body>
+   <h1>Technology</h1>
+
+<section>
+   <h2>Fronted</h2>
+<p>HTML / CSS / JavaScript</p>
+</section>
+
+<section>
+   <h2>AWS</h2>
+
+
+   <h3>EC2</h3>
+   <p> 
+       Used Amazon EC2 to host and publish this portfolio website.
+       Nginx is running on the Linux server to serve the HTML, CSS, and JavaScript.
+   </p>
+
+   <h3>Lambda</h3>
+   <p> 
+       Used AWS Lambda to process contact form submissions.
+       The browser sends form data to a Lambda Function URL using JavaScript.
+   </p>
+
+   <h3>SES</h3>
+   <p>
+       Integrated Amazon SES with Lambda to send contact notifications and automatic confirmation emails.
+   </p>
+
+   <h3>IAM</h3>
+   <p>
+       Configured IAM permissions so that Lambda can access SES and send emails securely.
+   </p>
+       
+   <h3>CloudWatch</h3>
+   <p>
+       Used CloudWatch Logs to check Lambda execution results and troubleshoot error during development.
+   </p>
+
+   <h3>Architecture</h3>
+   <p>
+       Contact Form - JavaScript - Lambda - SES - Email
+   </p>
+
+</section>
+
+<section>
+   <h2>Infrastructre</h2>
+  
+
+   <h3>Nginx</h3>
+   <p>
+       Used Nginx as the web server the portfolio website from the EC2 instance.
+   </p>
+
+   <h3>Linux</h3>
+   <p>
+       Used Linux commands to manage files, check services, inspect ports, and troubleshoot the web server.
+   </p>
+
+   <h3>Git / GitHub</h3>
+   <p>
+       Used Git for version control abd GitHub to store and manage the source code.
+   </p>
+</section>
+
+<section>
+   <h2>Linux Commands</h2>
+
+   <h3>Check Nginx Status</h3>
+   <p><code>systemctl status nginx</code></p>
+   <p>Checks whether the Nginx web server is running.</p>
+
+   <h3>Test Nginx Configuration</h3>
+   <p><code>sudo nginx -t</code></p>
+   <p>Checks the Nginx configuration for syntax errors.</p>
+
+   <h3>Reload Nginx</h3>
+   <p><code>sudo systemctl reload nginx</code></p>
+   <p>Reloads the Nginx configuration without stopping the server.</p>
+
+   <h3>Check Open Ports</h3>
+   <p><code>sudo ss -tulpn</code></p>
+   <p>Display listening ports and the processes using them.</p>
+
+   <h3>Check Nginx Logs</h3>
+   <p><code>sudo journalctl -u nginx</code></p>
+   <p>Display Nginx service logs for troubleshooting.</p>
+</section>
+
+</body>
+</html>
+
+
+
