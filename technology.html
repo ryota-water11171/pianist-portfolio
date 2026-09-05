@@ -4,10 +4,12 @@
    <meta charset="UTF-8">
    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
    <title>Technology</title>
+   <link rel="stylesheet" href="/css/style.css?v=5">
 </head>
 
 
 <body>
+   <main class="technology-page">
    <h1>Technology</h1>
 
 <section>
@@ -16,41 +18,73 @@
 </section>
 
 <section>
-   <h2>AWS</h2>
+<section>
+  <h2>AWS</h2>
 
+  <div class="aws-grid">
 
-   <h3>EC2</h3>
-   <p> 
-       Used Amazon EC2 to host and publish this portfolio website.
-       Nginx is running on the Linux server to serve the HTML, CSS, and JavaScript.
-   </p>
+    <div class="tech-card">
+      <h3>EC2</h3>
+      <p>
+        Used Amazon EC2 to host and publish this portfolio website.
+        Nginx is running on the Linux server to serve the HTML, CSS, and JavaScript.
+      </p>
+    </div>
 
-   <h3>Lambda</h3>
-   <p> 
-       Used AWS Lambda to process contact form submissions.
-       The browser sends form data to a Lambda Function URL using JavaScript.
-   </p>
+    <div class="tech-card">
+      <h3>Lambda</h3>
+      <p>
+        Used AWS Lambda to process contact form submissions.
+        The browser sends form data to a Lambda Function URL using JavaScript.
+      </p>
+      <button class="code-button" id="lambda-code-button">
+       View Code
+      </button>   
+    </div>
 
-   <h3>SES</h3>
-   <p>
-       Integrated Amazon SES with Lambda to send contact notifications and automatic confirmation emails.
-   </p>
+    <div class="tech-card">
+      <h3>SES</h3>
+      <p>
+        Integrated Amazon SES with Lambda to send contact notifications
+        and automatic confirmation emails.
+      </p>
+    </div>
 
-   <h3>IAM</h3>
-   <p>
-       Configured IAM permissions so that Lambda can access SES and send emails securely.
-   </p>
-       
-   <h3>CloudWatch</h3>
-   <p>
-       Used CloudWatch Logs to check Lambda execution results and troubleshoot error during development.
-   </p>
+    <div class="tech-card">
+      <h3>IAM</h3>
+      <p>
+        Configured IAM permissions so that Lambda can access SES
+        and send emails securely.
+      </p>
+    </div>
 
-   <h3>Architecture</h3>
-   <p>
-       Contact Form - JavaScript - Lambda - SES - Email
-   </p>
+    <div class="tech-card">
+      <h3>CloudWatch</h3>
+      <p>
+        Used CloudWatch Logs to check Lambda execution results
+        and troubleshoot errors during development.
+      </p>
+    </div>
 
+  </div>
+
+ 
+  <div class="architecture-box">
+  <h3>Architecture</h3>
+
+  <div class="architecture-flow">
+    <span>Contact Form</span>
+    <span>→</span>
+    <span>JavaScript</span>
+    <span>→</span>
+    <span>Lambda</span>
+    <span>→</span>
+    <span>SES</span>
+    <span>→</span>
+    <span>Email</span>
+  </div>
+</div>
+</section>
 </section>
 
 <section>
@@ -69,33 +103,199 @@
 
    <h3>Git / GitHub</h3>
    <p>
-       Used Git for version control abd GitHub to store and manage the source code.
+       Used Git for version control and GitHub to store and manage the source code.
    </p>
 </section>
-
 <section>
-   <h2>Linux Commands</h2>
+  <h2>Linux Commands</h2>
 
-   <h3>Check Nginx Status</h3>
-   <p><code>systemctl status nginx</code></p>
-   <p>Checks whether the Nginx web server is running.</p>
+  <h3>Check Nginx Status</h3>
+  <p>Checks whether the Nginx web server is running.</p>
+  <button class="command-button" data-command="systemctl status nginx">
+    View Command
+  </button>
 
-   <h3>Test Nginx Configuration</h3>
-   <p><code>sudo nginx -t</code></p>
-   <p>Checks the Nginx configuration for syntax errors.</p>
+  <h3>Test Nginx Configuration</h3>
+  <p>Checks the Nginx configuration for syntax errors.</p>
+  <button class="command-button" data-command="sudo nginx -t">
+    View Command
+  </button>
 
-   <h3>Reload Nginx</h3>
-   <p><code>sudo systemctl reload nginx</code></p>
-   <p>Reloads the Nginx configuration without stopping the server.</p>
+  <h3>Reload Nginx</h3>
+  <p>Reloads the Nginx configuration without stopping the server.</p>
+  <button class="command-button" data-command="sudo systemctl reload nginx">
+    View Command
+  </button>
 
-   <h3>Check Open Ports</h3>
-   <p><code>sudo ss -tulpn</code></p>
-   <p>Display listening ports and the processes using them.</p>
+  <h3>Check Open Ports</h3>
+  <p>Displays listening ports and the processes using them.</p>
+  <button class="command-button" data-command="sudo ss -tulpn">
+    View Command
+  </button>
 
-   <h3>Check Nginx Logs</h3>
-   <p><code>sudo journalctl -u nginx</code></p>
-   <p>Display Nginx service logs for troubleshooting.</p>
+  <h3>Check Nginx Logs</h3>
+  <p>Displays Nginx service logs for troubleshooting.</p>
+  <button class="command-button" data-command="sudo journalctl -u nginx">
+    View Command
+  </button>
 </section>
+
+<div id="lambda-modal" class="command-modal">
+  <div class="command-modal-content">
+    <button id="close-lambda-modal" class="close-command-modal">×</button>
+
+    <h3>Lambda Code</h3>
+
+    <pre><code id="lambda-code-text"></code></pre>
+  </div>
+</div>
+
+<div id="command-modal" class="command-modal">
+  <div class="command-modal-content">
+    <button id="close-command-modal" class="close-command-modal">×</button>
+
+    <h3>Command</h3>
+
+    <pre><code id="command-text"></code></pre>
+  </div>
+</div>
+
+</main>
+
+<script>
+const lambdaButton = document.getElementById("lambda-code-button");
+const lambdaModal = document.getElementById("lambda-modal");
+const lambdaCodeText = document.getElementById("lambda-code-text");
+const closeLambdaModal = document.getElementById("close-lambda-modal");
+
+const lambdaSource = `import json
+import boto3
+
+ses = boto3.client("ses", region_name="us-east-1")
+
+def lambda_handler(event, context):
+    body = json.loads(event["body"])
+
+    name = body.get("name", "")
+    email = body.get("email", "")
+    message = body.get("message", "")
+
+    print("Name:", name)
+    print("Email:", email)
+    print("Message:", message)
+
+    ses.send_email(
+        Source="YOUR_VERIFIED_EMAIL",
+        Destination={
+            "ToAddresses": ["YOUR_VERIFIED_EMAIL"]
+        },
+        ReplyToAddresses=[email],
+        Message={
+            "Subject": {
+                "Data": "New contact form message",
+                "Charset": "UTF-8"
+            },
+            "Body": {
+                "Text": {
+                    "Data": f"""
+Name: {name}
+Email: {email}
+
+Message:
+{message}
+""",
+                    "Charset": "UTF-8"
+                }
+            }
+        }
+    )
+
+    ses.send_email(
+        Source="YOUR_VERIFIED_EMAIL",
+        Destination={
+            "ToAddresses": [email]
+        },
+        Message={
+            "Subject": {
+                "Data": "We have received your inquiry",
+                "Charset": "UTF-8"
+            },
+            "Body": {
+                "Text": {
+                    "Data": f"""
+Dear {name},
+
+Thank you for contacting us.
+This is an automated confirmation that your inquiry has been successfully received.
+
+We will review your message and respond as soon as possible.
+
+Please note that this is an automated email.
+
+Best regards,
+Ryota Yamazaki
+""",
+                    "Charset": "UTF-8"
+                }
+            }
+        }
+    )
+
+    return {
+        "statusCode": 200,
+        "body": json.dumps({
+            "message": "Contact form received"
+        })
+    }`;
+
+lambdaButton.addEventListener("click", function() {
+  lambdaCodeText.textContent = lambdaSource;
+  lambdaModal.classList.add("show");
+  document.body.style.overflow = "hidden";
+});
+
+closeLambdaModal.addEventListener("click", function() {
+  lambdaModal.classList.remove("show");
+  document.body.style.overflow = "";
+});
+
+lambdaModal.addEventListener("click", function(event) {
+  if (event.target === lambdaModal) {
+    lambdaModal.classList.remove("show");
+    document.body.style.overflow = "";
+  }
+});
+</script>
+
+
+<script>
+const modal = document.getElementById("command-modal");
+const commandText = document.getElementById("command-text");
+const closeButton = document.getElementById("close-command-modal");
+
+document.querySelectorAll(".command-button").forEach(function(button) {
+  button.addEventListener("click", function() {
+    commandText.textContent = button.dataset.command;
+    modal.classList.add("show");
+  });
+});
+
+closeButton.onclick = function() {
+  modal.classList.remove("show");
+};
+
+modal.onclick = function(event) {
+  if (event.target === modal) {
+    modal.classList.remove("show");
+  }
+};
+</script>
+
+
+
+
+
+
 
 </body>
 </html>

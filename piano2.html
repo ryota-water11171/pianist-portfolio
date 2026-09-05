@@ -19,7 +19,8 @@
       display: flex;
       overflow-x: auto;
       margin-top: 30px;
-      touch-action: none;
+      touch-action: pan-x;
+      -webkit-overflow-scrolling: touch
     }
 
     .key {
@@ -52,6 +53,24 @@
     .key.black:active {
       background: #333333;
     }
+
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .keyboard {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
   </style>
 
 </head>
@@ -297,6 +316,10 @@
       });
 
     });
+
+
+
+
 
   </script>
 

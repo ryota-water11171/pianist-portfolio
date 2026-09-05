@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button id="test">SOUND TEST</button>
+
+<script>
+document.getElementById("test").addEventListener("click", async function() {
+
+  const AudioContextClass =
+    window.AudioContext || window.webkitAudioContext;
+
+  const audioContext = new AudioContextClass();
+
+  await audioContext.resume();
+
+  const oscillator = audioContext.createOscillator();
+
+  oscillator.frequency.value = 440;
+  oscillator.connect(audioContext.destination);
+
+  oscillator.start();
+  oscillator.stop(audioContext.currentTime + 1);
+
+});
+</script>
+
+</body>
+</html>
