@@ -10,10 +10,17 @@
 
 <body>
 
-   <nav class="top-nav">
-    <a href="/piano2.html">Interactive Piano</a>
-    <a href="/technology.html">Technology</a>
-   </nav>
+<div class="menu-container">
+  <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">
+    ☰
+  </button>
+
+  <nav class="top-nav" id="top-nav">
+    <a href="/journey.html">JOURNEY</a>
+    <a href="/piano2.html">INTERACTIVE PIANO</a>
+    <a href="/technology.html">TECHNOLOGY</a>
+  </nav>
+</div>
 
 
     <section class="hero">
@@ -100,6 +107,18 @@ form.addEventListener("submit", async function(event) {
     alert("Succeeded!!:" + result.message);
 });
 </script>
+
+
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const topNav = document.getElementById("top-nav");
+
+  menuToggle.addEventListener("click", () => {
+    topNav.classList.toggle("show");
+  });
+</script>
+
+
 
 
 </body>
