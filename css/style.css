@@ -106,36 +106,35 @@ body {
 }
 
 
-.contaact input,
+.contact input,
 .contact textarea {
     width: 100%;
     box-sizing: border-box;
-    padding: 0 30px;
-    font-size: 30px;
-    
-    background-color: white;
-    color: black;
-    border: 1px solid white;
+    padding: 14px 16px;
+    border-radius: 8px; 
+    front-family: inherit;
+    font-size: 1.0rem;   
 }
+
+
 
 .contact input {
-    height: 30px;
+   height: 40px;
 }
 
-
 .contact textarea {
-    height: 140px;
+    height: 160px;
     resize: vertical;
 }
 
 
 .contact button { 
-    width: 50%
-    height: 50px;
-    padding: 0px;
-    font-size: 16px;
-    background-color: white;
-    color: black;
+    display: block;
+    width: 180px;    
+    padding: 12px 20px;
+    margin: 18px auto 0;
+    font-size: 1rem;
+    border-radius: 8px;
     cursor: pointer;
 }
 
