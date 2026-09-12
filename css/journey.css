@@ -105,3 +105,42 @@
     height: auto;
   }
 }
+
+
+
+
+
+.orchestra-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.orchestra-gallery img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 0;
+}
+
+@media (max-width: 700px) {
+  .orchestra-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .orchestra-gallery img {
+    height: auto;
+  }
+}
+
+
+.journey-video {
+  width: 100%;
+  max-width: 700px;
+  max-height: 420px;
+  border-radius: 10px;
+  display: block;
+  margin-top: 20px;
+}
