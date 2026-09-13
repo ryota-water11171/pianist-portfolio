@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>Ryota Yamazaki | Pianist</title>
     <link rel="stylesheet" href="/css/style.css?v=3">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 
 
 </head>
@@ -52,14 +55,61 @@
    </section>
 
 
-    <section class="performance">
 
-    <h3>Performances</h3>
+<section class="performance">
+    <h3>Featured Performance</h3>
+
+    <div class="youtube-container">
+        <iframe
+            src="https://www.youtube.com/embed/NMKRpbaQLuU"
+            title="Ryota Yamazaki - Featured Performance"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+    </div>
+ 
+   <div class="youtube-container">
+        <iframe
+            src="https://www.youtube.com/embed/rlU23MiKEqc"
+            title="Ryota Yamazaki - Featured Performance"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+   </div>
+</section>
 
 
-    <p>Upcoming performances coming soon.</p>
+<div class="social-section">
+    <div class="social-links">
+        <a href="https://www.instagram.com/ryotayamazakipiano/"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
 
-    </section>
+        <a href="https://x.com/water11171"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="X">
+            <i class="fa-brands fa-x-twitter"></i>
+        </a>
+
+        <a href="https://www.youtube.com/@ryotayamazaki11171"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+        </a>
+    </div>
+</div>
+
+
+
+
+
 
 
     <section class="contact" style="max-width: 500px; margin: 100px auto; padding: 0 30px;">
@@ -87,7 +137,6 @@ const form = document.querySelector("form");
 
 form.addEventListener("submit", async function(event) {
     event.preventDefault();
-    alert("Java works!");
 
     const data = {
         name: document.getElementById("name").value,
@@ -104,7 +153,13 @@ form.addEventListener("submit", async function(event) {
     });
 
     const result = await response.json();
-    alert("Succeeded!!:" + result.message);
+    if (response.ok) {
+        alert("Message Sent Successfully!");
+        form.reset();
+    } else {
+        alert("Failed to send message. Please try again.");
+}
+
 });
 </script>
 
