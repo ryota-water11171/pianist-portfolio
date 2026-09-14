@@ -1,8 +1,14 @@
 body {
-    margin: 0;
-    background-color: #111;
-    color: white;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  background:
+    linear-gradient(
+      180deg,
+      #08090c 0%,
+      #151922 50%,
+      #090a0d 100%
+    );
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
 
@@ -70,26 +76,197 @@ body {
 }
 
 .hero-text h1 {
-    font-size: 80px;
-    margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(56px, 8vw, 96px);
+  font-weight: 400;
+  letter-spacing: -2px;
+  margin: 0;
+
+  opacity: 0;
+  transform: translateY(25px);
+  animation: titleFadeUp 1.2s ease forwards;
 }
 
 .hero-text p {
-    font-size: 30px;
+  font-size: 16px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-top: 12px;
+  opacity: 0;
+
+  animation: subtitleFade 1.2s ease 0.5s forwards;
 }
 
+
 .biography {
-    max-width: 800px;
-    margin: 80px auto;
-    padding: 0 30px;
-    line-height: 1.8;
+  max-width: 760px;
+  margin: 120px auto;
+  padding: 0 30px;
+  line-height: 1.95;
 }
+
+.biography h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0.08px;
+  margin-bottom: 28px;
+  color: #f3efe7;
+}
+
+.biography p {
+  font-size: 15px;
+  line-height: 2.1;
+  letter-spacing: 0.04em;
+  color: #d7d3ca;
+}
+
+
+
+.biography {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: bioFadeUp 1s ease forwards;
+  animation-delay: 0.25s;
+}
+
+@keyframes bioFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+.photo-section {
+  max-width: 620px;
+  margin: 90px auto;
+  padding: 0 30px;
+}
+
+.photo-section img {
+  width: 100%;
+  display: block;
+  height: auto;
+  object-fit: cover;
+}
+
+
+
+.news {
+  max-width: 720px;
+  margin: 120px auto;
+  padding: 0 30px;
+  text-align: center;
+}
+
+.news h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  color: #f3efe7;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.news-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  padding: 22px 26px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+
+  color: #f3efe7;
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.02);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.news-item:visited {
+  color: #f3efe7;
+}
+
+.news-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.news-date {
+  min-width: 110px;
+
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+
+  color: #9f9f9f;
+}
+
+.news-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  letter-spacing: 0.3px;
+  text-align: left;
+
+  color: #f3efe7;
+}
+
+.news-more {
+  display: inline-block;
+  margin-top: 30px;
+
+  color: #aaa;
+  text-decoration: none;
+
+  font-size: 13px;
+  letter-spacing: 1.5px;
+
+  transition: color 0.3s ease;
+}
+
+.news-more:visited {
+  color: #aaa;
+}
+
+.news-more:hover {
+  color: white;
+}
+
+
 
 .performance {
     max-width: 800px;
     margin: 80px auto;
     padding: 0 30px;
     line-height: 1.8;
+}
+
+
+
+.performance h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-bottom: 34px;
+  color: #f3efe7;
+  text-align: center;
 }
 
 
@@ -143,6 +320,18 @@ body {
     
 }
 
+
+.contact h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-bottom: 34px;
+  color: #f3efe7;
+  text-align: center;
+}
+
+
 .contact form { 
     display: flex;
     flex-direction: column;
@@ -183,200 +372,121 @@ body {
 }
 
 
-technology-page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 80px 30px;
+
+@keyframes titleFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.technology-page section {
-  background: #1b1b1b;
-  padding: 35px;
-  margin-bottom: 35px;
-  border: 1px solid #333;
-  border-radius: 14px;
-}
+@keyframes subtitleFade {
+  from {
+    opacity: 0;
+  }
 
-.technology-page h1 {
-  font-size: 48px;
-  margin-bottom: 50px;
-}
-
-.technology-page h2 {
-  font-size: 30px;
-  margin-bottom: 25px;
-}
-
-.technology-page h3 {
-  font-size: 20px;
-  margin-top: 25px;
-}
-
-.technology-page p {
-  line-height: 1.8;
-}
-
-.aws-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.tech-card {
-  background: #111;
-  border: 1px solid #333;
-  border-radius: 12px;
-  padding: 25px;
-}
-
-.tech-card h3 {
-  margin-top: 0;
-  font-size: 22px;
-}
-
-.tech-card p {
-  color: #ccc;
-  line-height: 1.7;
-}
-
-.code-button {
-  margin-top: 15px;
-  padding: 10px 18px;
-  background: transparent;
-  color: white;
-  border: 1px solid #666;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.code-button:hover {
-  background: white;
-  color: #111;
-}
-
-.architecture-box {
-  margin-top: 25px;
-  padding: 25px;
-  background: #111;
-  border: 1px solid #333;
-  border-radius: 12px;
-}
-
-.architecture-box h3 {
-  margin-top: 0;
-}
-
-@media (max-width: 700px) {
-  .aws-grid {
-    grid-template-columns: 1fr;
+  to {
+    opacity: 0.7;
   }
 }
 
 
-.architecture-flow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 20px;
+
+
+@media (max-width: 768px) {
+
+  .hero {
+    min-height: auto;
+    padding: 20px 20px 35px;
+  }
+
+  .hero img {
+    width: min(280px, 78vw);
+  }
+
+  .hero-text {
+    margin-top: 12px;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(40px, 12vw, 54px);
+    line-height: 1.1;
+  }
+
+  .hero-text p {
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    margin-top: 8px;
+  }
+
+  .menu-container {
+    position: absolute;
+    top: 24px;
+    right: 20px;
+    z-index: 100;
+  }
+
+  .menu-toggle {
+    position: relative;
+    z-index: 102;
+    font-size: 28px;
+  }
+
+  .top-nav {
+    position: absolute;
+    top: 48px;
+    right: 0;
+
+    width: 220px;
+    padding: 22px;
+
+    background: rgba(8, 10, 14, 0.94);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    flex-direction: column;
+    gap: 18px;
+
+    text-align: right;
+
+    z-index: 101;
+  }
+
+  .top-nav a {
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+  }
 }
 
-.architecture-flow span {
-  padding: 12px 18px;
-  border: 1px solid #444;
-  border-radius: 8px;
-  background: #161616;
+
+
+  .biography {
+    margin: 24px auto 50px;
+    padding: 0 20px;
+  }
+
+  .biography h2 {
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+
+  .biography p {
+    font-size: 16px;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+  }
 }
 
 
 
-.command-button {
-  padding: 10px 18px;
-  background: transparent;
-  color: white;
-  border: 1px solid #666;
-  border-radius: 6px;
-  cursor: pointer;
-}
 
-.command-button:hover {
-  background: white;
-  color: #111;
-}
 
-.command-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
 
-  background: rgba(0, 0, 0, 0.75);
 
-  align-items: center;
-  justify-content: center;
-
-  z-index: 1000;
-}
-
-.command-modal.show {
-  display: flex;
-}
-
-.command-modal-content {
-  width: 90%;
-  max-width: 700px;
-  max-height: 80vh;
-
-  background: #161616;
-  border: 1px solid #444;
-  border-radius: 12px;
-
-  padding: 30px;
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-}
-
-.command-modal-content h3 {
-  margin-top: 0;
-  flex-shrink: 0;
-}
-
-.command-modal-content pre {
-  margin: 15px 0 0 0;
-
-  background: #0d0d0d;
-  padding: 20px;
-  border-radius: 8px;
-
-  overflow: auto;
-  max-height: 60vh;
-
-  white-space: pre;
-  text-align: left;
-}
-
-.command-modal-content code {
-  display: block;
-  white-space: pre;
-}
-
-.close-command-modal {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-
-  width: 40px;
-  height: 40px;
-
-  background: transparent;
-  border: none;
-
-  color: white;
-  font-size: 26px;
-
-  cursor: pointer;
-  z-index: 10;
-}
