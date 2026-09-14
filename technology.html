@@ -5,160 +5,358 @@
    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
    <title>Technology</title>
    <link rel="stylesheet" href="/css/style.css?v=5">
+   <link rel="stylesheet" href="/css/technology.css?v=2">
 </head>
 
 
 <body>
-   <main class="technology-page">
-   <h1>Technology</h1>
 
-<section>
-   <h2>Frontend</h2>
+<main class="technology-page">
+    <h1>Technology</h1>
+
+    <section class="technology-intro">
+        <p>
+            このページでは、今回制作したポートフォリオサイトで使った技術やシステム、
+            Linuxコマンドなどをまとめています。
+        </p>
+    </section>
+
+<section class="it-journey">
+    <h2>IT Journey</h2>
+
+    <div class="journey-buttons">
+        <button class="journey-button" data-journey="start">
+            ITを始めたきっかけ
+        </button>
+
+        <button class="journey-button" data-journey="aws">
+            PythonからAWSへ
+        </button>
+
+        <button class="journey-button" data-journey="piano">
+            ピアノとIT
+        </button>
+
+        <button class="journey-button" data-journey="future">
+            これから
+        </button>
+    </div>
+</section>
+    <section>
+        <h2>Frontend</h2>
+
+
 <p>HTML / CSS / JavaScript</p>
 </section>
 
 <section>
 <section>
-  <h2>AWS</h2>
+  <h2>AWS / Cloud Services</h2>
 
   <div class="aws-grid">
 
-    <div class="tech-card">
-      <h3>EC2</h3>
-      <p>
-        Used Amazon EC2 to host and publish this portfolio website.
-        Nginx is running on the Linux server to serve the HTML, CSS, and JavaScript.
-      </p>
-    </div>
+<div class="tech-card">
+    <h3>EC2</h3>
+    <p>
+        Amazon EC2上にLinuxサーバーを構築し、このポートフォリオサイトを公開しています。
+        WebサーバーにはNginxを使用しています。
+    </p>
+</div>
+
 
     <div class="tech-card">
       <h3>Lambda</h3>
       <p>
-        Used AWS Lambda to process contact form submissions.
-        The browser sends form data to a Lambda Function URL using JavaScript.
-      </p>
+        Contact Formから送信されたデータをAWS Lambdaで処理しています。
+        JavaScriptからLambda Function URLへデータを送信し、メール送信処理につなげています。      </p>
       <button class="code-button" id="lambda-code-button">
        View Code
       </button>   
     </div>
 
-    <div class="tech-card">
-      <h3>SES</h3>
-      <p>
-        Integrated Amazon SES with Lambda to send contact notifications
-        and automatic confirmation emails.
-      </p>
-    </div>
-
-    <div class="tech-card">
-      <h3>IAM</h3>
-      <p>
-        Configured IAM permissions so that Lambda can access SES
-        and send emails securely.
-      </p>
-    </div>
-
-    <div class="tech-card">
-      <h3>CloudWatch</h3>
-      <p>
-        Used CloudWatch Logs to check Lambda execution results
-        and troubleshoot errors during development.
-      </p>
-    </div>
-
-  </div>
-
- 
-  <div class="architecture-box">
-  <h3>Architecture</h3>
-
-  <div class="architecture-flow">
-    <span>Contact Form</span>
-    <span>→</span>
-    <span>JavaScript</span>
-    <span>→</span>
-    <span>Lambda</span>
-    <span>→</span>
-    <span>SES</span>
-    <span>→</span>
-    <span>Email</span>
-  </div>
+<div class="tech-card">
+    <h3>Resend</h3>
+    <p>
+        Contact Formのメール送信にResend APIを使用しています。
+        LambdaからResend APIを呼び出し、管理者への通知メールと
+        送信者への自動返信メールを送信しています。
+    </p>
 </div>
+
+
+<div class="tech-card">
+    <h3>IAM</h3>
+    <p>
+        AWSリソースに必要な権限を設定し、
+        サービスやリソースへのアクセスを管理しています。
+    </p>
+</div>
+
+
+
+<div class="tech-card">
+    <h3>CloudWatch</h3>
+    <p>
+        CloudWatch Logsを使用してLambdaの実行結果やエラーを確認し、
+        Contact Formの構築やトラブルシューティングに利用しました。
+    </p>
+</div>
+
+
+<div class="tech-card">
+    <h3>S3</h3>
+    <p>
+        サイトで使用する画像や動画をAmazon S3に保存しています。
+        S3バケットは非公開にし、CloudFront経由でコンテンツを配信しています。
+    </p>
+</div>
+
+<div class="tech-card">
+    <h3>CloudFront</h3>
+    <p>
+        Amazon CloudFrontを使用して、S3に保存した画像や動画を配信しています。
+        S3を直接公開せず、CloudFront経由でアクセスする構成にしています。
+    </p>
+</div>
+
+
+
+
+ <div class="tech-card">
+    <h3>Cloudflare</h3>
+    <p>
+        独自ドメインのDNS管理にCloudflareを使用しています。
+        ドメインをEC2のElastic IPに接続し、
+        このポートフォリオサイトへアクセスできるようにしています。
+    </p>
+</div>
+
+
+
+
+  </div>
+
+<div class="architecture-box">
+    <h3>Architecture</h3>
+
+    <div class="architecture-group">
+        <h4>Web Site</h4>
+        <div class="architecture-flow">
+            <span>Browser</span>
+            <span>→</span>
+            <span>Cloudflare DNS</span>
+            <span>→</span>
+            <span>EC2</span>
+            <span>→</span>
+            <span>Nginx</span>
+            <span>→</span>
+            <span>HTML / CSS / JavaScript</span>
+        </div>
+    </div>
+
+    <div class="architecture-group">
+        <h4>Images / Video</h4>
+        <div class="architecture-flow">
+            <span>Browser</span>
+            <span>→</span>
+            <span>CloudFront</span>
+            <span>→</span>
+            <span>Private S3</span>
+        </div>
+    </div>
+
+    <div class="architecture-group">
+        <h4>Contact Form</h4>
+        <div class="architecture-flow">
+            <span>JavaScript</span>
+            <span>→</span>
+            <span>Lambda Function URL</span>
+            <span>→</span>
+            <span>Lambda</span>
+            <span>→</span>
+            <span>Resend API</span>
+            <span>→</span>
+            <span>Email</span>
+        </div>
+    </div>
+</div> 
 </section>
-</section>
+
 
 <section>
-   <h2>Infrastructre</h2>
-  
+    <h2>Infrastructure</h2>
 
-   <h3>Nginx</h3>
-   <p>
-       Used Nginx as the web server the portfolio website from the EC2 instance.
-   </p>
+    <h3>Nginx</h3>
+    <p>
+        EC2上のWebサーバーとしてNginxを使用しています。
+        HTML、CSS、JavaScriptなどのファイルを配信しています。
+    </p>
 
-   <h3>Linux</h3>
-   <p>
-       Used Linux commands to manage files, check services, inspect ports, and troubleshoot the web server.
-   </p>
+    <h3>Linux</h3>
+    <p>
+        Linux上でファイル操作、サービスの状態確認、ポートやログの確認などを行い、
+        Webサーバーの管理やトラブルシューティングに使用しています。
+    </p>
 
-   <h3>Git / GitHub</h3>
-   <p>
-       Used Git for version control and GitHub to store and manage the source code.
-   </p>
+    <h3>HTTPS / Certbot</h3>
+    <p>
+        Certbotを使用してSSL/TLS証明書を設定し、
+        HTTPSでサイトにアクセスできるようにしています。
+        証明書の自動更新も設定しています。
+    </p>
+
+    <h3>Git / GitHub</h3>
+    <p>
+        Gitでソースコードの変更履歴を管理し、
+        GitHubにコードを保存しています。
+    </p>
+
+    <h3>Terraform</h3>
+    <p>
+        Terraformを使用してEC2とSecurity Groupを構築しました。
+        plan、apply、destroyを実行し、
+        Infrastructure as Codeの基本を学んでいます。
+    </p>
 </section>
+
+
+
+
+
 <section>
-  <h2>Linux Commands</h2>
+    <h2>Linux Commands</h2>
 
-  <h3>Check Nginx Status</h3>
-  <p>Checks whether the Nginx web server is running.</p>
-  <button class="command-button" data-command="systemctl status nginx">
-    View Command
-  </button>
+    <h3>Nginx</h3>
 
-  <h3>Test Nginx Configuration</h3>
-  <p>Checks the Nginx configuration for syntax errors.</p>
-  <button class="command-button" data-command="sudo nginx -t">
-    View Command
-  </button>
+    <h4>Nginxの状態確認</h4>
+    <p>Nginxが正常に起動しているか確認します。</p>
+    <button
+        class="command-button"
+        data-command="sudo systemctl status nginx">
+        View Command
+    </button>
 
-  <h3>Reload Nginx</h3>
-  <p>Reloads the Nginx configuration without stopping the server.</p>
-  <button class="command-button" data-command="sudo systemctl reload nginx">
-    View Command
-  </button>
+    <h4>Nginx設定ファイルの構文チェック</h4>
+    <p>Nginxの設定ファイルに構文エラーがないか確認します。</p>
+    <button
+        class="command-button"
+        data-command="sudo nginx -t">
+        View Command
+    </button>
 
-  <h3>Check Open Ports</h3>
-  <p>Displays listening ports and the processes using them.</p>
-  <button class="command-button" data-command="sudo ss -tulpn">
-    View Command
-  </button>
+    <h4>Nginxの再読み込み</h4>
+    <p>Webサーバーを停止せずに、変更した設定を反映します。</p>
+    <button
+        class="command-button"
+        data-command="sudo systemctl reload nginx">
+        View Command
+    </button>
 
-  <h3>Check Nginx Logs</h3>
-  <p>Displays Nginx service logs for troubleshooting.</p>
-  <button class="command-button" data-command="sudo journalctl -u nginx">
-    View Command
-  </button>
+    <h4>Nginxログの確認</h4>
+    <p>Nginxのログを確認し、エラーや動作状況を調べます。</p>
+    <button
+        class="command-button"
+        data-command="sudo journalctl -u nginx">
+        View Command
+    </button>
+
+
+    <h3>Network</h3>
+
+    <h4>待受ポートの確認</h4>
+    <p>現在どのポートが開いているか、どのプロセスが使用しているかを確認します。</p>
+    <button
+        class="command-button"
+        data-command="sudo ss -tulpn">
+        View Command
+    </button>
+
+    <h4>HTTPSレスポンスの確認</h4>
+    <p>WebサイトのHTTPヘッダーを確認し、HTTPSやリダイレクトの動作を確認します。</p>
+    <button
+        class="command-button"
+        data-command="curl -I https://ryota-yamazaki.com">
+        View Command
+    </button>
+
+
+    <h3>System</h3>
+
+    <h4>ディスク使用量の確認</h4>
+    <p>サーバーのディスク容量と使用状況を確認します。</p>
+    <button
+        class="command-button"
+        data-command="df -h">
+        View Command
+    </button>
+
+    <h4>メモリ使用量の確認</h4>
+    <p>サーバーのメモリ使用状況を確認します。</p>
+    <button
+        class="command-button"
+        data-command="free -h">
+        View Command
+    </button>
+
+    <h4>実行中プロセスの確認</h4>
+    <p>サーバー上で動いているプロセスを確認します。</p>
+    <button
+        class="command-button"
+        data-command="ps aux">
+        View Command
+    </button>
+
+
+    <h3>HTTPS / Certbot</h3>
+
+    <h4>Certbot自動更新タイマーの確認</h4>
+    <p>SSL/TLS証明書の自動更新タイマーが有効か確認します。</p>
+    <button
+        class="command-button"
+        data-command="sudo systemctl status certbot.timer">
+        View Command
+    </button>
 </section>
 
-<div id="lambda-modal" class="command-modal">
-  <div class="command-modal-content">
-    <button id="close-lambda-modal" class="close-command-modal">×</button>
 
-    <h3>Lambda Code</h3>
 
-    <pre><code id="lambda-code-text"></code></pre>
-  </div>
+   <div id="command-modal" class="command-modal">
+    <div class="command-modal-content">
+        <button
+            id="close-command-modal"
+            class="close-command-modal"
+            type="button"
+            aria-label="閉じる"
+        >
+            ×
+        </button>
+
+        <h3>Command</h3>
+
+        <pre><code id="command-text"></code></pre>
+    </div>
 </div>
 
-<div id="command-modal" class="command-modal">
-  <div class="command-modal-content">
-    <button id="close-command-modal" class="close-command-modal">×</button>
 
-    <h3>Command</h3>
+<div id="journey-modal" class="journey-modal">
+    <div class="journey-modal-content">
+        <button
+            type="button"
+            id="close-journey-modal"
+            class="close-journey-modal"
+            aria-label="閉じる"
+        >
+            ×
+        </button>
 
-    <pre><code id="command-text"></code></pre>
-  </div>
+        <h2 id="journey-modal-title"></h2>
+
+        <div id="journey-modal-text"></div>
+    </div>
 </div>
+
+
+
 
 </main>
 
@@ -292,7 +490,167 @@ modal.onclick = function(event) {
 </script>
 
 
+<script>
+const journeyContent = {
+    start: {
+        title: "ITを始めたきっかけ",
+        text: `
+            <p>
+                昨年の秋にポーランドのワルシャワで行われたショパン国際ピアノコンクールの本大会に出場しました。
+                憧れだった世界の舞台に立つことができ、生涯忘れられない経験となりました。
+            </p>
 
+            <p>
+                その一方で、コンクールの前後から手の不調が続き、
+                将来の自分のキャリアについてより真剣に考えるようになりました。
+                それまでずっとピアノ中心の生活を送ってきたので、
+                音楽以外の道はほとんど考えたことがありませんでした。
+            </p>
+
+            <p>
+                他にやりたいことが見つからなかった中、
+                今年5月にたまたま『Python1年生』というコード学習の入門本を近所の本屋で見つけました。
+                家に帰ってパソコンを立ち上げ、試しにやってみたら想像以上に楽しく、
+                そこから本格的なITの勉強を始めました。
+            </p>
+        `
+    },
+
+    aws: {
+        title: "PythonからAWSへ",
+        text: `
+            <p>
+                最初はPythonの基本的な操作から始めました。
+                勉強しているうちにOSであるLinuxの存在を知り、
+                自分のパソコンにUbuntuを入れて触るようになりました。
+            </p>
+
+            <p>
+                そこからLinuxがサーバーやAWSでも使われていることを知り、
+                自然とクラウドにも興味を持つようになりました。
+            </p>
+
+            <p>
+                最初はPython、Linux、ネットワーク、クラウドの違いもほとんど分かっていませんでした。
+                でも勉強していくうちに、別々に見えていたものが少しずつつながっていく感じがすごく面白く、
+                AWSやインフラの勉強にのめり込んでいきました。
+            </p>
+
+            <p>
+                そして資格勉強を始め、
+                2026年6月にAWS Cloud Practitioner、
+                8月にSolutions Architect – Associateを取得しました。
+            </p>
+        `
+    },
+
+    piano: {
+        title: "ピアノとIT",
+        text: `
+            <p>
+                ピアノとITは全然違うように見えますが、
+                自分の中ではかなり似ています。
+            </p>
+
+            <p>
+                ITでは、エラーが出たら原因を調べて、試して、また直します。
+                ピアノも同じで、うまく弾けないところがあれば何度も練習して、
+                改善点を見つけて少しずつ直していくプロセスが続きます。
+            </p>
+
+            <p>
+                長時間一つのことに集中したり、
+                地道に改善を続けたりする力は、
+                ピアノをやってきた中で身についたものだと思っています。
+            </p>
+        `
+    },
+
+    future: {
+        title: "これから",
+        text: `
+            <p>
+                ITを始める前は、自分には音楽以外のことはあまりできないと思っていました。
+            </p>
+
+            <p>
+                でも実際に勉強を始めてみると、
+                少しずつできることが増えていって、
+                資格を取ったり、サーバーを立てたり、
+                このサイトを作ったりできるようになりました。
+            </p>
+
+            <p>
+                それで、自分の世界が前より少し広がったように感じています。
+            </p>
+
+            <p>
+                過去は変えられないけど、
+                これから何を勉強して、どんな道に進むかは自分次第だと思うようになりました。
+            </p>
+
+            <p>
+                ピアノや音楽はこれからもずっと大切にしたいです。
+                その一方で、今はクラウドやインフラのことをもっと知りたいし、
+                もっとできることを増やしていきたいと思っています。
+            </p>
+        `
+    }
+};
+
+
+const journeyModal = document.getElementById("journey-modal");
+const journeyModalTitle = document.getElementById("journey-modal-title");
+const journeyModalText = document.getElementById("journey-modal-text");
+const closeJourneyModal = document.getElementById("close-journey-modal");
+const journeyButtons = document.querySelectorAll(".journey-button");
+
+
+function openJourneyModal(key) {
+    const content = journeyContent[key];
+
+    if (!content) {
+        return;
+    }
+
+    journeyModalTitle.textContent = content.title;
+    journeyModalText.innerHTML = content.text;
+
+    journeyModal.classList.add("show");
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeJourney() {
+    journeyModal.classList.remove("show");
+    document.body.style.overflow = "";
+}
+
+
+journeyButtons.forEach(function(button) {
+    button.addEventListener("click", function() {
+        const key = button.dataset.journey;
+        openJourneyModal(key);
+    });
+});
+
+
+closeJourneyModal.addEventListener("click", closeJourney);
+
+
+journeyModal.addEventListener("click", function(event) {
+    if (event.target === journeyModal) {
+        closeJourney();
+    }
+});
+
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape" && journeyModal.classList.contains("show")) {
+        closeJourney();
+    }
+});
+</script>
 
 
 
