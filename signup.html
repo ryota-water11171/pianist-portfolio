@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Create Account | Practice Lab</title>
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/practice.css">
+</head>
+
+<body>
+
+  <main class="practice-app">
+
+    <section class="login-card">
+
+      <p class="eyebrow">PRACTICE LAB</p>
+
+      <h1>Create account.</h1>
+
+      <p class="login-intro">
+        アカウントを作成して、練習記録を保存できます。
+      </p>
+
+      <form class="login-form" id="signup-form">
+
+        <label for="signup-email">Email</label>
+        <input
+          type="email"
+          id="signup-email"
+          placeholder="your@email.com"
+          required
+        >
+
+        <label for="signup-password">Password</label>
+        <input
+          type="password"
+          id="signup-password"
+          placeholder="Password"
+          required
+        >
+
+        <button type="submit">
+          CREATE ACCOUNT
+        </button>
+
+      </form>
+
+      <p id="signup-message"></p>
+
+      <a href="/Login.html" class="back-home">
+        ← Back to Login
+      </a>
+
+    </section>
+
+  </main>
+
+  <script src="/js/signup.js"></script>
+
+</body>
+</html>

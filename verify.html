@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Verify Account | Practice Lab</title>
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/practice.css">
+</head>
+
+<body>
+
+  <main class="practice-app">
+    <section class="login-card">
+
+      <p class="eyebrow">PRACTICE LAB</p>
+
+      <h1>Verify account.</h1>
+
+      <p class="login-intro">
+        メールに届いた確認コードを入力してください。
+      </p>
+
+      <form class="login-form" id="verify-form">
+
+        <label for="verify-email">Email</label>
+        <input
+          type="email"
+          id="verify-email"
+          placeholder="your@email.com"
+          required
+        >
+
+        <label for="verify-code">Verification code</label>
+        <input
+          type="text"
+          id="verify-code"
+          placeholder="123456"
+          required
+        >
+
+        <button type="submit">
+          VERIFY ACCOUNT
+        </button>
+
+      </form>
+
+      <p id="verify-message"></p>
+
+      <a href="/Login.html" class="back-home">
+        ← Back to Login
+      </a>
+
+    </section>
+  </main>
+
+  <script src="/js/verify.js"></script>
+
+</body>
+</html>

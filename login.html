@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Practice Lab | Ryota Yamazaki</title>
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/practice.css">
+</head>
+
+<body>
+
+  <main class="practice-app">
+
+    <section class="login-card">
+
+      <p class="eyebrow">PRACTICE LAB</p>
+
+      <h1>Practice smarter.</h1>
+
+      <p class="login-intro">
+        練習時間や曲、メモを記録して、<br>
+        自分の練習を振り返るためのアプリです!
+      </p>
+
+      <form class="login-form" id="login-form">
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="your@email.com"
+          required
+        >
+
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+        >
+
+        <button type="submit">
+          LOG IN
+        </button>
+
+      </form>
+
+      <p id="login-message"></p>
+
+      <p class="signup-link">
+        Don't have an account?
+        <a href="/signup.html">Create account</a>
+      </p>
+
+      <a href="/" class="back-home">
+        ← Back to Home
+      </a>
+
+    </section>
+
+  </main>
+
+<script src="/js/login.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Practice Lab | Ryota Yamazaki</title>
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/practice.css?v=2">
+</head>
+
+<body>
+
+  <main class="practice-app">
+
+    <section class="practice-dashboard">
+
+      <p class="eyebrow">PRACTICE LAB</p>
+
+      <h1>練習記録カレンダー</h1>
+
+      <p class="practice-intro">
+        練習、レッスン、本番などの予定を管理できます！
+      </p>
+
+      <section class="calendar">
+
+        <div class="calendar-header">
+          <button id="prev-month">←</button>
+
+          <h2 id="calendar-title">
+            September 2026
+          </h2>
+
+          <button id="next-month">→</button>
+        </div>
+
+        <div class="calendar-weekdays">
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+        </div>
+
+        <div id="calendar-days" class="calendar-days">
+
+        </div>
+
+      </section>
+
+
+
+<section id="entry-panel" class="entry-panel">
+
+  <h2 id="selected-date-title">
+    日付選択
+  </h2>
+
+
+  <!-- ========================= -->
+  <!-- Practice Log  -->
+  <!-- ========================= -->
+
+  <section class="practice-section">
+
+    <h3>練習記録</h3>
+
+    <form id="practice-entry-form">
+
+      <label for="piece">
+        曲名 / タイトル
+      </label>
+
+      <input
+        type="text"
+        id="piece"
+        placeholder="ショパン　ノクターン　ハ短調 Op.48-1"
+        required
+      >
+
+      <label for="duration">
+        練習時間 (分)
+      </label>
+
+      <input
+        type="number"
+        id="duration"
+        min="1"
+        placeholder="45"
+        required
+      >
+
+      <label for="practice-notes">
+        メモ欄
+      </label>
+
+      <textarea
+        id="practice-notes"
+        rows="4"
+        placeholder="通し練習一回、リズム練習３０分..."
+      ></textarea>
+
+      <button type="submit">
+        ADD PRACTICE
+      </button>
+
+    </form>
+
+
+    <div class="daily-list">
+
+      <h4>Practice Entries</h4>
+
+      <div id="practice-entry-list"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ========================= -->
+  <!-- Important Events -->
+  <!-- ========================= -->
+
+  <section class="event-section">
+
+    <h3>重要イベント</h3>
+
+    <form id="event-entry-form">
+
+      <label for="event-type">
+        イベントの種類
+      </label>
+
+      <select id="event-type">
+
+        <option value="lesson">
+          レッスン
+        </option>
+
+        <option value="competition">
+          コンクール　
+        </option>
+
+        <option value="performance">
+          演奏会
+        </option>
+
+        <option value="deadline">
+          期限
+        </option>
+
+        <option value="other">
+          その他
+        </option>
+
+      </select>
+
+
+      <label for="event-title">
+        イベント名
+      </label>
+
+      <input
+        type="text"
+        id="event-title"
+        placeholder="ピアノコンクール"
+        required
+      >
+
+
+      <label for="event-date">
+        イベントの日程
+      </label>
+
+      <input
+        type="date"
+        id="event-date"
+        required
+      >
+
+
+<label>時間</label>
+
+<div class="time-select">
+
+  <select id="event-hour">
+    <option value="">時</option>
+    <option value="06">06</option>
+    <option value="07">07</option>
+    <option value="08">08</option>
+    <option value="09">09</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+  </select>
+
+  <span>:</span>
+
+  <select id="event-minute">
+    <option value="">分</option>
+    <option value="00">00</option>
+    <option value="10">00</option
+    <option value="20">20</option>
+    <option value="30">30</option>
+    <option value="40">40</option>
+    <option value="50">50</option>
+  </select>
+
+</div>
+
+      <label for="event-notes">
+        メモ欄
+      </label>
+
+      <textarea
+        id="event-notes"
+        rows="4"
+        placeholder="会場、レパートリー、やることリストなど。"
+      ></textarea>
+
+
+      <button type="submit">
+        ADD EVENTS
+      </button>
+
+    </form>
+
+
+    <div class="daily-list">
+
+      <h4>Upcoming Events</h4>
+
+      <div id="event-entry-list"></div>
+
+    </div>
+
+  </section>
+
+
+  <p id="save-message"></p>
+
+</section>
+    </section>
+
+  </main>
+
+  <script src="/js/practice.js?v=100"></script>
+
+</body>
+</html>
